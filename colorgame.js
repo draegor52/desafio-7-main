@@ -1,27 +1,12 @@
+let cuadrados = document.querySelectorAll(".square");
+let colorDisplay =
+    document.querySelector("#colorDisplay");
+let mensaje = document.querySelector("#message");
+let titulo = document.querySelector("h1");
+let botonReset = document.querySelector("#reset");
+let botonFacil = document.querySelector("#easy");
+let botonDificil = document.querySelector("#hard");
 
-const colores = [
-    "rgb(255, 0, 0)",
-    "rgb(0, 0, 255)",
-    "rgb(0, 255, 0)",
-    "rgb(255, 255, 0)",
-    "rgb(128, 0, 128)",
-    "rgb(255, 165, 0)",
-];
-
-for (let i = 0; i < colores.length; i++) {
-    console.log("cuadrado " + (i + 1) + ":" + colores[i]);
-}
-
-let coloresGanador = colores[2];
-
-console.log("adivina este color :" + coloresGanador);
-
-function elegirColor() {
-    for (let i = 0; i < colores.length; i++) {
-        let indice = Math.floor(Math.random() * colores.length);
-        return console.log(colores[indice])
-    }
-}
 
 function colorAleatorio() {
     let numero1 = Math.floor(Math.random() * 256);
@@ -31,7 +16,7 @@ function colorAleatorio() {
 }
 
 function generarColores(cantidad) {
-    let nuevosColores = [];
+    const nuevosColores = [];
     for (let i = 0; i < cantidad; i++) {
         nuevosColores.push(colorAleatorio());
     }
@@ -86,4 +71,23 @@ function adivinarColor(indice) {
         console.log("Incorrecto, intentá de nuevo");
     }
 }
+
+function píntarTablero() {
+    for (let i = 0; i < cuadrados.length; i++) {
+        if (juego.colores[i]){
+            cuadrados[i].style.backgroundColor = juego.colores[i];
+        cuadrados[i].style.display = "block";
+    }else {
+    cuadrados[i].style.display = "none";
+    }
+    colorDisplay.textContent = juego.colorGanador;
+}
+}
+
+for (let i = 0; i < cuadrados.length; i++) {
+    cuadrados[i].addEventListener("click", function () {
+        adivinar(i + 1);
+    });
+}
+
 
