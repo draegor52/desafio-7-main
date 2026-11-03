@@ -67,9 +67,18 @@ function adivinarColor(indice) {
     if (juego.colores[indice] === juego.colorGanador) {
         juego.terminado = true;
         console.log("¡Correcto! en " + juego.intentos + " intentos");
+        cuadrados.forEach(function(cuadrados, index ) {
+            cuadrados.style.juego["colorGanador"]
+        });
     } else {
         console.log("Incorrecto, intentá de nuevo");
+        cuadrados.forEach(function(cuadrados, index){
+            cuadrados.style.null
+        })
     }
+
+
+
 }
 
 function píntarTablero() {
