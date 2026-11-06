@@ -89,10 +89,11 @@ function adivinarColor(indice) {
 
         mensaje.textContent = "¡Correcto!";
 
+        botonReset.textContent = "play again?";
+
     } else {
 
         cuadrados[indice].style.backgroundColor = "#232323";
-        cuadrados[indice].style.display = "none";
 
         mensaje.textContent = "Intentalo nuevamente";
     }
